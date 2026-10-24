@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <title>Clean Audio Player</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      margin: 0;
+      padding: 24px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .card {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 24px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.4);
+    }
+    h1 {
+      font-size: 1.4rem;
+      margin-top: 0;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #38bdf8;
+    }
+    .file-input-group {
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      color: #cbd5e1;
+      font-size: 0.9rem;
+    }
+    audio {
+      width: 100%;
+      margin: 20px 0 12px 0;
+      filter: invert(0.9) hue-rotate(180deg);
+    }
+    .status-badge {
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f172a;
+      border: 1px solid #334155;
+      transition: all 0.2s ease;
+    }
+    .status-normal { color: #10b981; }
+    .status-muted {
+      color: #f43f5e;
+      background: rgba(244, 63, 94, 0.1);
+      border-color: #f43f5e;
+    }
+    .controls-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .control-item {
+      background: #0f172a;
+      padding: 10px 12px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Clean Audio Player</h1>
+
+    <div class="file-input-group">
+      <label for="audioFile">1. Select Audiobook / Audio File (.mp3, .m4b):</label>
+      <input type="file" id="audioFile" accept="audio/*">
+    </div>
+
+    <div class="file-input-group">
+      <label for="jsonFile">2. Select Filter Map (censor_map.json):</label>
+      <input type="file" id="jsonFile" accept=".json">
+    </div>
+
+    <audio id="audioPlayer" controls></audio>
+
+    <div id="statusBadge" class="status-badge status-normal">Ready • No audio loaded</div>
+
+    <div class="controls-grid">
+      <div class="control-item">
+        <span>Mute Words</span>
+        <input type="checkbox" id="muteToggle" checked>
+      </div>
+      <div class="control-item">
+        <span>Skip Scenes</span>
+        <input type="checkbox" id="skipToggle" checked>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const audioPlayer = document.getElementById('audioPlayer');
+    const audioFileInput = document.getElementById('audioFile');
+    const jsonFileInput = document.getElementById('jsonFile');
+    const statusBadge = document.getElementById('statusBadge');
+    const muteToggle = document.getElementById('muteToggle');
+    const skipToggle = document.getElementById('skipToggle');
+
+    let filterEvents = [];
+
+    // Load Local Audio File via Blob URL
+    audioFileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        audioPlayer.src = URL.createObjectURL(file);
+        statusBadge.textContent = 'Audio Loaded • Ready to Play';
+      }
+    });
+
+    // Load Local JSON Filter Map
+    jsonFileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          try {
+            filterEvents = JSON.parse(event.target.result);
+            statusBadge.textContent = `Loaded ${filterEvents.length} filter points`;
+          } catch (err) {
+            alert('Failed to parse JSON filter map.');
+          }
+        };
+        reader.readAsText(file);
+      }
+    });
+
+    // Precision Playback Monitor
+    audioPlayer.addEventListener('timeupdate', () => {
+      if (!filterEvents.length) return;
+
+      const currentTime = audioPlayer.currentTime;
+      let matched = false;
+
+      for (let i = 0; i < filterEvents.length; i++) {
+        const item = filterEvents[i];
+        if (currentTime >= item.start && currentTime <= item.end) {
+          matched = true;
+
+          if (item.action === 'skip' && skipToggle.checked) {
+            audioPlayer.currentTime = item.end + 0.05;
+            statusBadge.className = 'status-badge status-muted';
+            statusBadge.textContent = `[SKIPPED: ${item.category || 'Explicit Scene'}]`;
+            return;
+          }
+
+          if ((item.action === 'mute' || item.action === 'bleep') && muteToggle.checked) {
+            audioPlayer.muted = true;
+            statusBadge.className = 'status-badge status-muted';
+            statusBadge.textContent = `[MUTED: "${item.word || 'explicit'}"]`;
+            return;
+          }
+        }
+      }
+
+      if (!matched) {
+        if (audioPlayer.muted) audioPlayer.muted = false;
+        statusBadge.className = 'status-badge status-normal';
+        statusBadge.textContent = 'Playback Clean';
+      }
+    });
+
+    // Register Service Worker for PWA installation
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('ServiceWorker registered:', reg.scope))
+          .catch(err => console.error('ServiceWorker error:', err));
+      });
+    }
+  </script>
+</body>
+</html>
