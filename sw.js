@@ -1,4 +1,4 @@
-const CACHE_NAME = 'clean-player-v1';
+const CACHE_NAME = 'clean-player-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -27,9 +27,21 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Pass audio or large dynamic fetches through network/blob without crashing cache
-  if (event.request.url.endsWith('.mp3') || event.request.url.endsWith('.m4b') || event.request.url.endsWith('.json')) {
+  if (event.request.url.endsWith('.mp3') || event.request.url.endsWith('.m4b') || event.request.url.endsWith('.json') || event.request.url.startsWith('blob:')) {
     event.respondWith(fetch(event.request).catch(() => caches.match(event.request)));
+    return;
+  }
+  // Network first for index.html so updates are immediate
+  if (event.request.url.includes('index.html') || event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const resClone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, resClone));
+          return response;
+        })
+        .catch(() => caches.match(event.request))
+    );
     return;
   }
   event.respondWith(
