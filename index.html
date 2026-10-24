@@ -79,6 +79,17 @@
       background: rgba(244, 63, 94, 0.1);
       border-color: #f43f5e;
     }
+    .debug-box {
+      margin-top: 14px;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 0.78rem;
+      color: #94a3b8;
+      font-family: monospace;
+      line-height: 1.4;
+    }
     .controls-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -115,6 +126,10 @@
 
     <div id="statusBadge" class="status-badge status-normal">Ready • No audio loaded</div>
 
+    <div class="debug-box" id="debugBox">
+      Time: 0.00s | Filters Loaded: 0 | Next Mute: None
+    </div>
+
     <div class="controls-grid">
       <div class="control-item">
         <span>Mute Words</span>
@@ -132,12 +147,14 @@
     const audioFileInput = document.getElementById('audioFile');
     const jsonFileInput = document.getElementById('jsonFile');
     const statusBadge = document.getElementById('statusBadge');
+    const debugBox = document.getElementById('debugBox');
     const muteToggle = document.getElementById('muteToggle');
     const skipToggle = document.getElementById('skipToggle');
 
     let filterEvents = [];
+    let monitorInterval = null;
 
-    // Load Local Audio File via Blob URL
+    // Load Local Audio File
     audioFileInput.addEventListener('change', (e) => {
       const file = e.target.files[0];
       if (file) {
@@ -146,15 +163,23 @@
       }
     });
 
-    // Load Local JSON Filter Map
+    // Load Local JSON Filter Map with extra padding
+    const PADDING_SECONDS = 0.25; // Expands window so fast mobile browsers never skip past it
+
     jsonFileInput.addEventListener('change', (e) => {
       const file = e.target.files[0];
       if (file) {
         const reader = new FileReader();
         reader.onload = (event) => {
           try {
-            filterEvents = JSON.parse(event.target.result);
+            const rawEvents = JSON.parse(event.target.result);
+            filterEvents = rawEvents.map(item => ({
+              ...item,
+              expandedStart: Math.max(0, item.start - PADDING_SECONDS),
+              expandedEnd: item.end + PADDING_SECONDS
+            }));
             statusBadge.textContent = `Loaded ${filterEvents.length} filter points`;
+            updateDebug(0);
           } catch (err) {
             alert('Failed to parse JSON filter map.');
           }
@@ -163,20 +188,32 @@
       }
     });
 
-    // Precision Playback Monitor
-    audioPlayer.addEventListener('timeupdate', () => {
-      if (!filterEvents.length) return;
+    function updateDebug(currentTime) {
+      if (!filterEvents.length) {
+        debugBox.textContent = `Time: ${currentTime.toFixed(2)}s | Filters: 0`;
+        return;
+      }
+      const upcoming = filterEvents.find(f => f.end > currentTime);
+      const nextInfo = upcoming ? `"${upcoming.word}" at ${upcoming.start.toFixed(1)}s` : 'None';
+      debugBox.textContent = `Time: ${currentTime.toFixed(2)}s | Filters: ${filterEvents.length} | Next: ${nextInfo}`;
+    }
+
+    // High-Frequency Check Loop (50ms interval instead of slow timeupdate)
+    function checkCensor() {
+      if (!filterEvents.length || audioPlayer.paused) return;
 
       const currentTime = audioPlayer.currentTime;
+      updateDebug(currentTime);
+
       let matched = false;
 
       for (let i = 0; i < filterEvents.length; i++) {
         const item = filterEvents[i];
-        if (currentTime >= item.start && currentTime <= item.end) {
+        if (currentTime >= item.expandedStart && currentTime <= item.expandedEnd) {
           matched = true;
 
           if (item.action === 'skip' && skipToggle.checked) {
-            audioPlayer.currentTime = item.end + 0.05;
+            audioPlayer.currentTime = item.expandedEnd + 0.05;
             statusBadge.className = 'status-badge status-muted';
             statusBadge.textContent = `[SKIPPED: ${item.category || 'Explicit Scene'}]`;
             return;
@@ -196,9 +233,21 @@
         statusBadge.className = 'status-badge status-normal';
         statusBadge.textContent = 'Playback Clean';
       }
+    }
+
+    audioPlayer.addEventListener('play', () => {
+      if (monitorInterval) clearInterval(monitorInterval);
+      monitorInterval = setInterval(checkCensor, 50);
     });
 
-    // Register Service Worker for PWA installation
+    audioPlayer.addEventListener('pause', () => {
+      if (monitorInterval) clearInterval(monitorInterval);
+    });
+
+    audioPlayer.addEventListener('seeking', () => {
+      checkCensor();
+    });
+
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
