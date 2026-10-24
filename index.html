@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0f172a">
   <link rel="manifest" href="manifest.json">
   <link rel="apple-touch-icon" href="icon-192.png">
-  <title>Clean Audio Player</title>
+  <title>Clean Audio Player v2</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -31,10 +31,22 @@
     h1 {
       font-size: 1.4rem;
       margin-top: 0;
-      margin-bottom: 20px;
+      margin-bottom: 4px;
       text-align: center;
       color: #38bdf8;
     }
+    .version-tag {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.1);
+      padding: 3px 8px;
+      border-radius: 12px;
+      display: inline-block;
+      margin: 0 auto 16px auto;
+      font-weight: 600;
+    }
+    .center-wrap { text-align: center; }
     .file-input-group {
       margin-bottom: 16px;
     }
@@ -76,7 +88,7 @@
     .status-normal { color: #10b981; }
     .status-muted {
       color: #f43f5e;
-      background: rgba(244, 63, 94, 0.1);
+      background: rgba(244, 63, 94, 0.15);
       border-color: #f43f5e;
     }
     .debug-box {
@@ -88,7 +100,7 @@
       font-size: 0.78rem;
       color: #94a3b8;
       font-family: monospace;
-      line-height: 1.4;
+      line-height: 1.5;
     }
     .controls-grid {
       display: grid;
@@ -105,15 +117,27 @@
       justify-content: space-between;
       font-size: 0.85rem;
     }
+    .btn-test {
+      margin-top: 12px;
+      width: 100%;
+      background: #334155;
+      color: #f8fafc;
+      border: none;
+      padding: 8px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
 
   <div class="card">
     <h1>Clean Audio Player</h1>
+    <div class="center-wrap"><span class="version-tag">UPDATE v2.0 ACTIVE</span></div>
 
     <div class="file-input-group">
-      <label for="audioFile">1. Select Audiobook / Audio File (.mp3, .m4b):</label>
+      <label for="audioFile">1. Select Audiobook (.mp3, .m4b):</label>
       <input type="file" id="audioFile" accept="audio/*">
     </div>
 
@@ -124,11 +148,13 @@
 
     <audio id="audioPlayer" controls></audio>
 
-    <div id="statusBadge" class="status-badge status-normal">Ready • No audio loaded</div>
+    <div id="statusBadge" class="status-badge status-normal">Ready • Select audio & map</div>
 
     <div class="debug-box" id="debugBox">
       Time: 0.00s | Filters Loaded: 0 | Next Mute: None
     </div>
+
+    <button id="jumpFirstBtn" class="btn-test" style="display:none;">Jump to 5s Before First Mute</button>
 
     <div class="controls-grid">
       <div class="control-item">
@@ -150,11 +176,12 @@
     const debugBox = document.getElementById('debugBox');
     const muteToggle = document.getElementById('muteToggle');
     const skipToggle = document.getElementById('skipToggle');
+    const jumpFirstBtn = document.getElementById('jumpFirstBtn');
 
     let filterEvents = [];
     let monitorInterval = null;
+    let originalVolume = 1.0;
 
-    // Load Local Audio File
     audioFileInput.addEventListener('change', (e) => {
       const file = e.target.files[0];
       if (file) {
@@ -163,8 +190,7 @@
       }
     });
 
-    // Load Local JSON Filter Map with extra padding
-    const PADDING_SECONDS = 0.25; // Expands window so fast mobile browsers never skip past it
+    const PADDING_SECONDS = 0.35; // Generous window so mobile engines catch it reliably
 
     jsonFileInput.addEventListener('change', (e) => {
       const file = e.target.files[0];
@@ -177,14 +203,26 @@
               ...item,
               expandedStart: Math.max(0, item.start - PADDING_SECONDS),
               expandedEnd: item.end + PADDING_SECONDS
-            }));
+            })).sort((a, b) => a.start - b.start);
+
             statusBadge.textContent = `Loaded ${filterEvents.length} filter points`;
+            if (filterEvents.length > 0) {
+              jumpFirstBtn.style.display = 'block';
+              jumpFirstBtn.textContent = `Jump to 5s Before First Mute (${(Math.max(0, filterEvents[0].start - 5)).toFixed(0)}s)`;
+            }
             updateDebug(0);
           } catch (err) {
-            alert('Failed to parse JSON filter map.');
+            alert('Failed to parse JSON filter map. Check file structure.');
           }
         };
         reader.readAsText(file);
+      }
+    });
+
+    jumpFirstBtn.addEventListener('click', () => {
+      if (filterEvents.length > 0) {
+        audioPlayer.currentTime = Math.max(0, filterEvents[0].start - 5);
+        audioPlayer.play();
       }
     });
 
@@ -194,13 +232,12 @@
         return;
       }
       const upcoming = filterEvents.find(f => f.end > currentTime);
-      const nextInfo = upcoming ? `"${upcoming.word}" at ${upcoming.start.toFixed(1)}s` : 'None';
+      const nextInfo = upcoming ? `"${upcoming.word}" at ${upcoming.start.toFixed(1)}s` : 'None left';
       debugBox.textContent = `Time: ${currentTime.toFixed(2)}s | Filters: ${filterEvents.length} | Next: ${nextInfo}`;
     }
 
-    // High-Frequency Check Loop (50ms interval instead of slow timeupdate)
     function checkCensor() {
-      if (!filterEvents.length || audioPlayer.paused) return;
+      if (!filterEvents.length) return;
 
       const currentTime = audioPlayer.currentTime;
       updateDebug(currentTime);
@@ -220,39 +257,44 @@
           }
 
           if ((item.action === 'mute' || item.action === 'bleep') && muteToggle.checked) {
+            // Apply both muted property AND volume 0 for aggressive mobile compatibility
             audioPlayer.muted = true;
+            audioPlayer.volume = 0;
             statusBadge.className = 'status-badge status-muted';
-            statusBadge.textContent = `[MUTED: "${item.word || 'explicit'}"]`;
+            statusBadge.textContent = `[MUTING: "${item.word || 'explicit'}"]`;
             return;
           }
         }
       }
 
       if (!matched) {
-        if (audioPlayer.muted) audioPlayer.muted = false;
+        if (audioPlayer.muted || audioPlayer.volume === 0) {
+          audioPlayer.muted = false;
+          audioPlayer.volume = 1.0;
+        }
         statusBadge.className = 'status-badge status-normal';
         statusBadge.textContent = 'Playback Clean';
       }
     }
 
+    // Monitor via both timer AND timeupdate event
     audioPlayer.addEventListener('play', () => {
       if (monitorInterval) clearInterval(monitorInterval);
-      monitorInterval = setInterval(checkCensor, 50);
+      monitorInterval = setInterval(checkCensor, 35);
     });
 
     audioPlayer.addEventListener('pause', () => {
       if (monitorInterval) clearInterval(monitorInterval);
     });
 
-    audioPlayer.addEventListener('seeking', () => {
-      checkCensor();
-    });
+    audioPlayer.addEventListener('timeupdate', checkCensor);
+    audioPlayer.addEventListener('seeking', checkCensor);
 
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
-          .then(reg => console.log('ServiceWorker registered:', reg.scope))
-          .catch(err => console.error('ServiceWorker error:', err));
+          .then(reg => console.log('SW active:', reg.scope))
+          .catch(err => console.error('SW error:', err));
       });
     }
   </script>
