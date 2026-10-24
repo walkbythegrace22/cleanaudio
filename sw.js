@@ -1,4 +1,4 @@
-const CACHE_NAME = 'clean-player-v2';
+const CACHE_NAME = 'clean-player-v3';
 const ASSETS = [
   './',
   './index.html',
@@ -31,7 +31,6 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(fetch(event.request).catch(() => caches.match(event.request)));
     return;
   }
-  // Network first for index.html so updates are immediate
   if (event.request.url.includes('index.html') || event.request.mode === 'navigate') {
     event.respondWith(
       fetch(event.request)
