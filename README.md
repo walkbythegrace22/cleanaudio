@@ -6,8 +6,6 @@ The web player runs client-side in the browser via GitHub Pages, muting explicit
 
 🚀 Quick Links
 
-Web Audio Player: https://github.com/walkbythegrace22/cleanaudio
-
 Audiobook Scanner Notebook (Google Colab): [Launch Colab Scanner Notebook](https://colab.research.google.com/drive/1MKMrkkg6SqoGvEL5UD7MV79Iv54CP0Bt?usp=sharing)
 
 📖 How It Works
