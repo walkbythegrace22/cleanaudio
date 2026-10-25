@@ -53,12 +53,9 @@
     }
     .inputs-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 12px;
       margin-bottom: 16px;
-    }
-    @media (max-width: 600px) {
-      .inputs-grid { grid-template-columns: 1fr; }
     }
     label {
       display: block;
@@ -155,7 +152,7 @@
     audio {
       width: 100%;
       margin-top: 10px;
-      display: none; /* replaced by custom high-visibility controls */
+      display: none;
     }
 
     .status-badge {
@@ -227,12 +224,8 @@
 
     <div class="inputs-grid">
       <div>
-        <label for="audioFile">1. Select Audiobook (.mp3, .m4b):</label>
+        <label for="audioFile">Select Audiobook (.mp3, .m4b):</label>
         <input type="file" id="audioFile" accept="audio/*">
-      </div>
-      <div>
-        <label for="jsonFile">2. Select Filter Map (censor_map.json):</label>
-        <input type="file" id="jsonFile" accept=".json">
       </div>
     </div>
 
@@ -254,7 +247,7 @@
       </div>
     </div>
 
-    <div id="statusBadge" class="status-badge status-normal">Ready • Select audio & map</div>
+    <div id="statusBadge" class="status-badge status-normal">Loading filter map...</div>
 
     <div class="debug-box" id="debugBox">
       Time: 0.00s | Filters: 0 | Next Mute: None
@@ -277,7 +270,6 @@
   <script>
     const audioPlayer = document.getElementById('audioPlayer');
     const audioFileInput = document.getElementById('audioFile');
-    const jsonFileInput = document.getElementById('jsonFile');
     const statusBadge = document.getElementById('statusBadge');
     const debugBox = document.getElementById('debugBox');
     const muteToggle = document.getElementById('muteToggle');
@@ -291,6 +283,7 @@
     const btnBack30 = document.getElementById('btnBack30');
     const btnForward30 = document.getElementById('btnForward30');
 
+    const PADDING_SECONDS = 0.35;
     let filterEvents = [];
     let monitorInterval = null;
     let isUserSeeking = false;
@@ -303,6 +296,33 @@
       return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
     }
 
+    // Automatically load censor_map.json from GitHub
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch('./censor_map.json')
+        .then(response => {
+          if (!response.ok) throw new Error('Could not find censor_map.json');
+          return response.json();
+        })
+        .then(rawEvents => {
+          filterEvents = rawEvents.map(item => ({
+            ...item,
+            expandedStart: Math.max(0, item.start - PADDING_SECONDS),
+            expandedEnd: item.end + PADDING_SECONDS
+          })).sort((a, b) => a.start - b.start);
+
+          statusBadge.textContent = `Filter Map Loaded (${filterEvents.length} points). Select Audio to Play.`;
+          if (filterEvents.length > 0) {
+            jumpFirstBtn.style.display = 'block';
+            jumpFirstBtn.textContent = `Jump to 5s Before First Mute (${Math.max(0, filterEvents[0].start - 5).toFixed(0)}s)`;
+          }
+          updateDebug(0);
+        })
+        .catch(err => {
+          console.warn('Auto-load failed:', err);
+          statusBadge.textContent = 'Could not load censor_map.json. Verify file exists in repo.';
+        });
+    });
+
     audioFileInput.addEventListener('change', (e) => {
       const file = e.target.files[0];
       if (file) {
@@ -314,35 +334,6 @@
     audioPlayer.addEventListener('loadedmetadata', () => {
       seekSlider.max = audioPlayer.duration;
       totalTimeDisplay.textContent = formatTime(audioPlayer.duration);
-    });
-
-    const PADDING_SECONDS = 0.35;
-
-    jsonFileInput.addEventListener('change', (e) => {
-      const file = e.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          try {
-            const rawEvents = JSON.parse(event.target.result);
-            filterEvents = rawEvents.map(item => ({
-              ...item,
-              expandedStart: Math.max(0, item.start - PADDING_SECONDS),
-              expandedEnd: item.end + PADDING_SECONDS
-            })).sort((a, b) => a.start - b.start);
-
-            statusBadge.textContent = `Loaded ${filterEvents.length} filter points`;
-            if (filterEvents.length > 0) {
-              jumpFirstBtn.style.display = 'block';
-              jumpFirstBtn.textContent = `Jump to 5s Before First Mute (${(Math.max(0, filterEvents[0].start - 5)).toFixed(0)}s)`;
-            }
-            updateDebug(0);
-          } catch (err) {
-            alert('Failed to parse JSON filter map. Check file structure.');
-          }
-        };
-        reader.readAsText(file);
-      }
     });
 
     // Custom UI Controls
