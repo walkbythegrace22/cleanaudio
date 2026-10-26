@@ -225,27 +225,31 @@
   <div class="card">
     <div class="header-row">
       <h1>Clean Audio Player</h1>
-      <span class="version-tag">MULTI-BOOK LIBRARY</span>
+      <span class="version-tag">LIBRARY & DIRECT UPLOAD</span>
     </div>
 
     <div class="inputs-grid">
+      <!-- Section 1: Filter Map Selection (Dropdown OR Direct File Picker) -->
       <div>
-        <label for="bookSelect">1. Select Book Filter Map:</label>
+        <label for="bookSelect">1. Choose Cloud Filter Map:</label>
         <select id="bookSelect">
-          <option value="iron_gold_pierce_brown.json">Iron Gold (Part 1)</option>
-          <!-- Add more books below as you create them -->
-          <!-- <option value="book2_map.json">Calloway Ranch (Book 2)</option> -->
-          <!-- <option value="book3_map.json">Another Title</option> -->
+          <option value="censor_map.json">Cowboy Casual (Book 1)</option>
+          <option value="book2_map.json">Audiobook 2</option>
         </select>
+
+        <div class="or-divider">— OR Pick Local .JSON File —</div>
+
+        <input type="file" id="jsonFileInput" accept=".json,application/json">
       </div>
 
+      <!-- Section 2: Audio File Picker -->
       <div>
-        <label for="audioFile">2. Select Audio File (.m4b, .mp3, .aac):</label>
-        <input type="file" id="audioFile" accept="audio/*">
+        <label for="audioFile">2. Select Audio (.m4b, .mp3, .aac):</label>
+        <input type="file" id="audioFile" accept="audio/*,audio/mp3,audio/mpeg,audio/x-m4a,audio/mp4">
       </div>
     </div>
 
-    <audio id="audioPlayer"></audio>
+    <audio id="audioPlayer" preload="auto"></audio>
 
     <!-- Big Progress & Playback Bar -->
     <div class="progress-section">
