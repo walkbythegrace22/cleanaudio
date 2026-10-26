@@ -7,6 +7,7 @@ The web player runs client-side in the browser via GitHub Pages, muting explicit
 🚀 Quick Links
 
 Audiobook Scanner Notebook (Google Colab): [Launch Colab Scanner Notebook](https://colab.research.google.com/drive/1MKMrkkg6SqoGvEL5UD7MV79Iv54CP0Bt?usp=sharing)
+Google Drive: https://workspace.google.com/products/drive/
 
 📖 How It Works
 
