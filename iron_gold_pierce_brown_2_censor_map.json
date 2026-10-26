@@ -1,0 +1,1367 @@
+[
+  {
+    "start": 109.77,
+    "end": 110.27,
+    "word": "shits",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 165.13,
+    "end": 165.69,
+    "word": "ass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 379.55,
+    "end": 379.85,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 426.53,
+    "end": 426.91,
+    "word": "ass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 478.85,
+    "end": 479.21,
+    "word": "piss",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 521.47,
+    "end": 521.89,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 590.55,
+    "end": 590.91,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 617.55,
+    "end": 618.05,
+    "word": "bullshit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 626.03,
+    "end": 626.43,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 670.77,
+    "end": 671.15,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 1131.09,
+    "end": 1131.51,
+    "word": "damned",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 1209.77,
+    "end": 1210.21,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 1430.65,
+    "end": 1430.99,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 1511.03,
+    "end": 1511.71,
+    "word": "bastard",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 1862.69,
+    "end": 1863.29,
+    "word": "bitch",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 3171.55,
+    "end": 3171.83,
+    "word": "bitch",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 3218.17,
+    "end": 3218.53,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 3300.89,
+    "end": 3301.91,
+    "word": "tits",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 3343.41,
+    "end": 3343.85,
+    "word": "cocks",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 3808.99,
+    "end": 3809.49,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 3863.11,
+    "end": 3863.79,
+    "word": "bastard",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 3991.51,
+    "end": 3991.85,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 4011.85,
+    "end": 4012.45,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 4052.49,
+    "end": 4053.07,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 4172.83,
+    "end": 4173.27,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 4200.97,
+    "end": 4201.63,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 4271.43,
+    "end": 4272.57,
+    "word": "dumbass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 4325.45,
+    "end": 4325.91,
+    "word": "bitches",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 5267.75,
+    "end": 5268.19,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 5269.31,
+    "end": 5269.83,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 5296.47,
+    "end": 5296.87,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 6598.43,
+    "end": 6598.65,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 6609.47,
+    "end": 6610.09,
+    "word": "bastard",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 6670.13,
+    "end": 6670.39,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 7262.89,
+    "end": 7263.23,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 7325.01,
+    "end": 7325.39,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 7427.81,
+    "end": 7428.19,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 7591.03,
+    "end": 7591.37,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 7658.89,
+    "end": 7659.19,
+    "word": "piss",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 7680.47,
+    "end": 7680.87,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 7787.07,
+    "end": 7787.55,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 7846.49,
+    "end": 7846.95,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 8041.67,
+    "end": 8042.33,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 8264.75,
+    "end": 8265.29,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 8290.91,
+    "end": 8291.47,
+    "word": "fuck",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 8369.39,
+    "end": 8369.79,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 8376.99,
+    "end": 8377.45,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 8456.79,
+    "end": 8457.23,
+    "word": "bitch",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 9457.51,
+    "end": 9458.05,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 10545.13,
+    "end": 10545.45,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 10724.89,
+    "end": 10725.39,
+    "word": "bastard",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 11014.79,
+    "end": 11015.21,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 11205.97,
+    "end": 11206.71,
+    "word": "bastards",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 11341.35,
+    "end": 11341.71,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 11361.49,
+    "end": 11361.91,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 11624.97,
+    "end": 11625.37,
+    "word": "bitch",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 11677.57,
+    "end": 11678.27,
+    "word": "fuck",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 11707.31,
+    "end": 11707.95,
+    "word": "bastard",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 11738.57,
+    "end": 11738.99,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 11762.73,
+    "end": 11763.31,
+    "word": "fucking",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 12023.03,
+    "end": 12023.47,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 12065.53,
+    "end": 12066.19,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 12066.37,
+    "end": 12066.75,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 12066.89,
+    "end": 12067.79,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 12947.0,
+    "end": 12947.44,
+    "word": "cock",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 12949.1,
+    "end": 12949.38,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 12983.96,
+    "end": 12984.26,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 13487.02,
+    "end": 13487.52,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 13541.86,
+    "end": 13542.14,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 13907.62,
+    "end": 13907.92,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 14742.19,
+    "end": 14742.53,
+    "word": "ass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 14758.77,
+    "end": 14759.13,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 15712.95,
+    "end": 15713.53,
+    "word": "bitch",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 15759.11,
+    "end": 15759.33,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 16332.17,
+    "end": 16332.67,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 16508.11,
+    "end": 16508.93,
+    "word": "bastard",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 16595.21,
+    "end": 16595.89,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 16781.65,
+    "end": 16782.07,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 16791.91,
+    "end": 16792.51,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 16939.71,
+    "end": 16940.21,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 16970.69,
+    "end": 16971.19,
+    "word": "ass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 17245.95,
+    "end": 17246.45,
+    "word": "ass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 17257.47,
+    "end": 17257.91,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 17348.65,
+    "end": 17349.03,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 17891.67,
+    "end": 17892.25,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 17993.31,
+    "end": 17993.81,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 18327.65,
+    "end": 18327.97,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 18331.83,
+    "end": 18332.23,
+    "word": "ass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 18536.85,
+    "end": 18537.33,
+    "word": "asshole",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 18615.55,
+    "end": 18615.87,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 19471.06,
+    "end": 19471.36,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 19873.09,
+    "end": 19873.55,
+    "word": "bitch",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 20403.01,
+    "end": 20403.53,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 20566.49,
+    "end": 20566.79,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 20568.83,
+    "end": 20569.03,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 21498.65,
+    "end": 21499.03,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 22079.03,
+    "end": 22079.71,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 22522.35,
+    "end": 22522.77,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 22747.89,
+    "end": 22748.23,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 22837.65,
+    "end": 22838.07,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 22985.87,
+    "end": 22986.45,
+    "word": "bitch",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 22998.17,
+    "end": 22998.63,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 23597.51,
+    "end": 23598.09,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 23737.83,
+    "end": 23738.39,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 23943.77,
+    "end": 23944.01,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 24315.67,
+    "end": 24316.15,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 24548.99,
+    "end": 24549.65,
+    "word": "fucker",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 24554.79,
+    "end": 24555.45,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 24555.35,
+    "end": 24556.23,
+    "word": "bastard",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 24947.25,
+    "end": 24947.73,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 25012.01,
+    "end": 25012.21,
+    "word": "fuck",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 25104.49,
+    "end": 25104.99,
+    "word": "fuck",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 25146.77,
+    "end": 25147.05,
+    "word": "fuck",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 25215.53,
+    "end": 25215.95,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 25229.57,
+    "end": 25229.93,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 25269.81,
+    "end": 25270.21,
+    "word": "ass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 25276.13,
+    "end": 25276.37,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 25895.37,
+    "end": 25895.59,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 26144.07,
+    "end": 26144.57,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 26194.01,
+    "end": 26194.49,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 26472.59,
+    "end": 26472.93,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 26557.29,
+    "end": 26557.67,
+    "word": "ass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 26747.79,
+    "end": 26748.09,
+    "word": "fuck",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 26986.39,
+    "end": 26986.73,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 27101.17,
+    "end": 27102.47,
+    "word": "shitting",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 27452.59,
+    "end": 27453.33,
+    "word": "tits",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 27493.91,
+    "end": 27494.53,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 27667.03,
+    "end": 27667.67,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 27692.71,
+    "end": 27693.03,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 27725.07,
+    "end": 27725.47,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 27848.83,
+    "end": 27849.35,
+    "word": "fucker",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 27949.03,
+    "end": 27949.37,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 28242.07,
+    "end": 28242.55,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 28291.61,
+    "end": 28291.93,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 28589.95,
+    "end": 28590.34,
+    "word": "ass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 28600.25,
+    "end": 28600.59,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 28609.01,
+    "end": 28609.33,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 28613.09,
+    "end": 28613.41,
+    "word": "piss",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 28726.77,
+    "end": 28727.29,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 29460.63,
+    "end": 29461.67,
+    "word": "asses",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 29602.67,
+    "end": 29602.95,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 29605.43,
+    "end": 29605.79,
+    "word": "asshole",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 30333.95,
+    "end": 30334.77,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 30903.69,
+    "end": 30904.07,
+    "word": "ass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 31399.87,
+    "end": 31400.43,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 31440.97,
+    "end": 31441.31,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 32127.81,
+    "end": 32128.05,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 32230.47,
+    "end": 32230.81,
+    "word": "piss",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 32277.07,
+    "end": 32277.55,
+    "word": "shitting",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 32300.29,
+    "end": 32300.65,
+    "word": "damned",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 32307.45,
+    "end": 32307.87,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 32321.17,
+    "end": 32321.47,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 33031.35,
+    "end": 33031.83,
+    "word": "bastards",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 33199.41,
+    "end": 33199.71,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 33257.61,
+    "end": 33257.87,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 33294.55,
+    "end": 33295.15,
+    "word": "fucking",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 33728.79,
+    "end": 33729.37,
+    "word": "fuck",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 33846.57,
+    "end": 33847.15,
+    "word": "bullshit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 33884.13,
+    "end": 33884.81,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 34216.91,
+    "end": 34217.27,
+    "word": "ass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 34308.95,
+    "end": 34309.17,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 34322.87,
+    "end": 34323.45,
+    "word": "shits",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 34333.09,
+    "end": 34333.63,
+    "word": "bastards",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 34473.29,
+    "end": 34474.23,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 34735.53,
+    "end": 34736.13,
+    "word": "tits",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 34738.23,
+    "end": 34738.93,
+    "word": "tits",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 34905.75,
+    "end": 34906.51,
+    "word": "fucking",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 35048.55,
+    "end": 35048.93,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 35343.37,
+    "end": 35343.69,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 35392.19,
+    "end": 35392.69,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 35464.07,
+    "end": 35464.49,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 35682.55,
+    "end": 35682.93,
+    "word": "fuck",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 35726.85,
+    "end": 35727.35,
+    "word": "dumbass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 35863.73,
+    "end": 35864.09,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 36156.45,
+    "end": 36157.01,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 36180.71,
+    "end": 36180.95,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 36511.49,
+    "end": 36511.99,
+    "word": "bastard",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 37307.29,
+    "end": 37307.83,
+    "word": "fucking",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 37347.53,
+    "end": 37348.05,
+    "word": "bastards",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 37476.93,
+    "end": 37477.27,
+    "word": "ass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 37482.83,
+    "end": 37483.15,
+    "word": "ass",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 37780.21,
+    "end": 37780.57,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 37794.45,
+    "end": 37794.77,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 38171.99,
+    "end": 38172.59,
+    "word": "bitch",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 38183.45,
+    "end": 38183.93,
+    "word": "shit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 38564.19,
+    "end": 38564.83,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 38805.27,
+    "end": 38806.01,
+    "word": "bastard",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 39828.41,
+    "end": 39828.71,
+    "word": "damn",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 39831.59,
+    "end": 39832.07,
+    "word": "damned",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 40891.69,
+    "end": 40892.13,
+    "word": "bastards",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 41006.51,
+    "end": 41007.09,
+    "word": "bitch",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 41032.61,
+    "end": 41032.83,
+    "word": "fuck",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 41033.25,
+    "end": 41033.65,
+    "word": "fuck",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 41399.95,
+    "end": 41400.45,
+    "word": "bullshit",
+    "action": "mute",
+    "category": "profanity"
+  },
+  {
+    "start": 41412.97,
+    "end": 41413.35,
+    "word": "hell",
+    "action": "mute",
+    "category": "profanity"
+  }
+]
