@@ -377,11 +377,11 @@
     });
 
     btnBack30.addEventListener('click', () => {
-      audioPlayer.currentTime = Math.max(0, audioPlayer.currentTime - 30);
+      audioPlayer.currentTime = Math.max(0, audioPlayer.currentTime - 15);
     });
 
     btnForward30.addEventListener('click', () => {
-      audioPlayer.currentTime = Math.min(audioPlayer.duration || Infinity, audioPlayer.currentTime + 30);
+      audioPlayer.currentTime = Math.min(audioPlayer.duration || Infinity, audioPlayer.currentTime + 15);
     });
 
     seekSlider.addEventListener('input', () => {
